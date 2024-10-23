@@ -105,6 +105,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						method: 'POST',
 						headers: {
 							'Content-Type': 'application/json',
+							'Access-Control-Allow-Origin': '*',
 							'Authorization': `Bearer ${token}`
 						},
 						body: JSON.stringify(newEmployee)
@@ -341,6 +342,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					localStorage.setItem('email', data.email);
 					localStorage.setItem('userType', data.type);
 					console.log('Customer ID almacenado:', data.customer_id);
+					console.log(selectCustomer);
+					
 					return data;
 				} catch (error) {
 					console.log("Error en el registro:", error);
